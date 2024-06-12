@@ -1,4 +1,4 @@
-import { IUsuario } from "./IUsuario";
+import { IUsuario } from "./IUsuario.js";
 
 export interface UsuarioRepository{
     register(
@@ -10,6 +10,7 @@ export interface UsuarioRepository{
         email: string
     ): Promise<IUsuario | null>
     modify(
+        usuarioOld: IUsuario,
         username?: string,
         email?: string,
         password?: string
@@ -17,5 +18,5 @@ export interface UsuarioRepository{
     delete(
         email: string,
         password: string
-    ): Promise<boolean>
+    ): Promise<IUsuario | null>
 }

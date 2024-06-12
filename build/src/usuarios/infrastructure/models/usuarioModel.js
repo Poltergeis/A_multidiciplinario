@@ -1,5 +1,5 @@
 import { Schema, model } from "mongoose";
-const usuarioSchema = new Schema({
+export const usuarioSchema = new Schema({
     username: {
         required: true,
         type: Schema.Types.String

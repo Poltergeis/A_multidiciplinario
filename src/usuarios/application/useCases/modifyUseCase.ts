@@ -1,6 +1,6 @@
-import { UsuarioRepository } from "../../domain/UsuarioRepository";
-import { EncryperRepository } from "../../domain/encrypterRepository";
-import { IUsuario } from "../../domain/IUsuario";
+import { UsuarioRepository } from "../../domain/UsuarioRepository.js";
+import { EncryperRepository } from "../../domain/encrypterRepository.js";
+import { IUsuario } from "../../domain/IUsuario.js";
 
 export class ModifyUseCase{
     constructor(
@@ -26,7 +26,7 @@ export class ModifyUseCase{
             if (!newUsername && (!newEmail && !newPassword)) {
                 return null;
             }
-            return await this.usuarioRepository.modify(newUsername,newEmail,newPassword);
+            return await this.usuarioRepository.modify(usuario,newUsername,newEmail,newPassword);
         } catch (error) {
             console.log(`error en el caso de uso de modify. ERROR:${error}`);
             return null;

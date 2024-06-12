@@ -17,7 +17,7 @@ export class ModifyUseCase {
             if (!newUsername && (!newEmail && !newPassword)) {
                 return null;
             }
-            return await this.usuarioRepository.modify(newUsername, newEmail, newPassword);
+            return await this.usuarioRepository.modify(usuario, newUsername, newEmail, newPassword);
         }
         catch (error) {
             console.log(`error en el caso de uso de modify. ERROR:${error}`);

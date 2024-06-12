@@ -1,7 +1,5 @@
-import { IUsuario } from "../../domain/IUsuario";
-import { RegisterUseCase } from "../../application/useCases/registerUseCase";
+import { RegisterUseCase } from "../../application/useCases/registerUseCase.js";
 import { Request, Response } from "express";
-import usuarioModel from "../models/usuarioModel";
 
 export class RegisterController {
     constructor(readonly registerUseCase: RegisterUseCase) { }
@@ -15,18 +13,13 @@ export class RegisterController {
                     message: "los datos del registro estaban incompletos o dañados"
                 });
             }
-            const usuario: IUsuario = new usuarioModel({
-                username: username,
-                email: email,
-                password: password
-            });
+            const usuario = await this.registerUseCase.run(username, email, password);
             if (!usuario) {
                 return res.status(400).send({
                     success: true,
                     message: "no se ha podido crear al nuevo usuario"
                 });
             }
-            await usuarioModel.insertMany(usuario)
             return res.status(201).send({
                 success: true,
                 message: "usuario creado exitosamente",

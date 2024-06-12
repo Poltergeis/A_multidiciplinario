@@ -1,6 +1,6 @@
-import { UsuarioRepository } from "../../domain/UsuarioRepository";
-import { EncryperRepository } from "../../domain/encrypterRepository";
-import { IUsuario } from "../../domain/IUsuario";
+import { UsuarioRepository } from "../../domain/UsuarioRepository.js";
+import { EncryperRepository } from "../../domain/encrypterRepository.js";
+import { IUsuario } from "../../domain/IUsuario.js";
 
 export class DeleteUseCase {
     constructor(
@@ -11,19 +11,19 @@ export class DeleteUseCase {
     async run(
         email: string,
         password: string
-    ): Promise<boolean> {
+    ): Promise<IUsuario | null> {
         try {
             const usuario = await this.usuarioRepository.getUserByEmail(email);
             if (!usuario) {
-                return false;
+                return null;
             }
             if (!await this.encrypterRepository.check(password, usuario.password)) {
-                return false;
+                return null;
             }
             return await this.usuarioRepository.delete(email, password);
         } catch (error) {
             console.log(`error en el caso de uso de delete. ERROR:${error}`);
-            return false;
+            return null;
         }
     }
 }
