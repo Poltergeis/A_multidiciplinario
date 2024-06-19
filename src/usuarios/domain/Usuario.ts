@@ -1,4 +1,4 @@
-import { IUsuario } from "./IUsuario.js";
+import { IUsuario } from "./IUsuario";
 
 export class Usuario implements IUsuario{
     constructor(

@@ -1,6 +1,6 @@
-import { IPerro } from "../domain/IPerro.js";
-import { PerroRepository } from "../domain/PerroRepository.js";
-import perroModel from "./models/perroModel.js";
+import { IPerro } from "../domain/IPerro";
+import { PerroRepository } from "../domain/PerroRepository";
+import perroModel from "./models/perroModel";
 
 export class PerroMongoRepository implements PerroRepository {
     async createPerro(nombre: string, edad: number, estadoDeSalud: string, idDueño: string): Promise<IPerro | null> {

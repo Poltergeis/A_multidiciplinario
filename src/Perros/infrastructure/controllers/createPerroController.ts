@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { CreatePerroUseCase } from "../../application/createPerroUseCase.js";
+import { CreatePerroUseCase } from "../../application/createPerroUseCase";
 
 export class CreatePerroController{
     constructor(readonly createPerroUseCase: CreatePerroUseCase) { }

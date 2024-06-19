@@ -1,7 +1,7 @@
 import {Document} from "mongoose";
-import usuarioModel from "./models/usuarioModel.js";
-import { UsuarioRepository } from "../domain/UsuarioRepository.js";
-import { IUsuario } from "../domain/IUsuario.js";
+import usuarioModel from "./models/usuarioModel";
+import { UsuarioRepository } from "../domain/UsuarioRepository";
+import { IUsuario } from "../domain/IUsuario";
 
 interface UsuarioDocument extends IUsuario,Document{}
 

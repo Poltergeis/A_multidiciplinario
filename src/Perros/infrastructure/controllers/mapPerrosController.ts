@@ -1,4 +1,4 @@
-import { MapPerrosUseCase } from "../../application/mapPerrosUseCase.js";
+import { MapPerrosUseCase } from "../../application/mapPerrosUseCase";
 import { Request, Response } from "express";
 
 export class MapPerrosController {

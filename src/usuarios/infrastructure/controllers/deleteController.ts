@@ -1,4 +1,4 @@
-import { DeleteUseCase } from "src/usuarios/application/useCases/deleteUseCase.js";
+import { DeleteUseCase } from "src/usuarios/application/useCases/deleteUseCase";
 import { Request, Response } from "express";
 import { Document } from "mongoose";
 

@@ -1,5 +1,5 @@
 import { Request, Response } from "express";
-import { ModifyUseCase } from "src/usuarios/application/useCases/modifyUseCase.js";
+import { ModifyUseCase } from "src/usuarios/application/useCases/modifyUseCase";
 
 export class ModifyController {
     constructor(readonly modifyUseCase: ModifyUseCase) { }

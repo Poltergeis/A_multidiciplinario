@@ -2,12 +2,11 @@
   "name": "a_multidiciplinario",
   "version": "1.0.0",
   "description": "",
-  "type": "module",
   "main": "index.js",
   "scripts": {
     "start": "tsc && node build/app.js",
     "dev": "nodemon build/app.js",
-    "tsdev": "tsnd --loader ts-node/esm --respawn --transpile-only app.ts"
+    "tsdev": "tsnd --watch --respawn --clear app.ts"
   },
   "keywords": [],
   "author": "",
@@ -33,7 +32,6 @@
     "nodemon": "^3.1.2",
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
-    "tsc-alias": "^1.8.10",
-    "tsnd": "^1.1.0"
+    "tsc-alias": "^1.8.10"
   }
 }

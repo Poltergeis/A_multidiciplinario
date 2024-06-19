@@ -1,4 +1,4 @@
-import { DeletePerroUseCase } from "../../application/deletePerroUseCase.js";
+import { DeletePerroUseCase } from "../../application/deletePerroUseCase";
 import { Request, Response } from "express";
 
 export class DeletePerroController {

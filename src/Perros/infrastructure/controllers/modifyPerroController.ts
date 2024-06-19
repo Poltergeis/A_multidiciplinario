@@ -1,4 +1,4 @@
-import { ModifyPerroUseCase } from "../../application/modifyPerroUseCase.js";
+import { ModifyPerroUseCase } from "../../application/modifyPerroUseCase";
 import { Request, Response } from "express";
 
 export class ModifyPerroController {

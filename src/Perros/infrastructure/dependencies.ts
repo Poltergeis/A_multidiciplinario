@@ -1,14 +1,14 @@
-import { PerroMongoRepository } from "./mongoRepository.js";
+import { PerroMongoRepository } from "./mongoRepository";
 
-import { CreatePerroUseCase } from "../application/createPerroUseCase.js";
-import { DeletePerroUseCase } from "../application/deletePerroUseCase.js";
-import { MapPerrosUseCase } from "../application/mapPerrosUseCase.js";
-import { ModifyPerroUseCase } from "../application/modifyPerroUseCase.js";
+import { CreatePerroUseCase } from "../application/createPerroUseCase";
+import { DeletePerroUseCase } from "../application/deletePerroUseCase";
+import { MapPerrosUseCase } from "../application/mapPerrosUseCase";
+import { ModifyPerroUseCase } from "../application/modifyPerroUseCase";
 
-import { CreatePerroController } from "./controllers/createPerroController.js";
-import { DeletePerroController } from "./controllers/deletePerroController.js";
-import { MapPerrosController } from "./controllers/mapPerrosController.js";
-import { ModifyPerroController } from "./controllers/modifyPerroController.js";
+import { CreatePerroController } from "./controllers/createPerroController";
+import { DeletePerroController } from "./controllers/deletePerroController";
+import { MapPerrosController } from "./controllers/mapPerrosController";
+import { ModifyPerroController } from "./controllers/modifyPerroController";
 
 class Dependencies {
     createPerroController: CreatePerroController;

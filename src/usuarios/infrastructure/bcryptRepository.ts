@@ -1,5 +1,5 @@
 import bcrypt from "bcrypt";
-import { EncryperRepository } from "../domain/encrypterRepository.js";
+import { EncryperRepository } from "../domain/encrypterRepository";
 
 export class BcryptRepository implements EncryperRepository{
     encrypt(value: string) {

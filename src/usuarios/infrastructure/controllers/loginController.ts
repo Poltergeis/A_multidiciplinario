@@ -1,4 +1,4 @@
-import { LoginUseCase } from "src/usuarios/application/useCases/loginUseCase.js";
+import { LoginUseCase } from "src/usuarios/application/useCases/loginUseCase";
 import { Request, Response } from "express";
 
 export class LoginController {

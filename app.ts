@@ -5,10 +5,10 @@ import helmet from "helmet";
 import http from "http";
 import dotenv from "dotenv";
 
-import connectToDatabase from "./src/database/database.js";
+import connectToDatabase from "./src/database/database";
 
-import { usuarioRouter } from "./src/usuarios/infrastructure/usuarioRouter.js";
-import { perroRouter } from "./src/Perros/infrastructure/perroRouter.js";
+import { usuarioRouter } from "./src/usuarios/infrastructure/usuarioRouter";
+import { perroRouter } from "./src/Perros/infrastructure/perroRouter";
 
 dotenv.config();
 

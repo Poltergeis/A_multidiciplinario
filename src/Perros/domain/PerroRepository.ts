@@ -1,4 +1,4 @@
-import { IPerro } from "./IPerro.js";
+import { IPerro } from "./IPerro";
 
 export interface PerroRepository {
     createPerro(

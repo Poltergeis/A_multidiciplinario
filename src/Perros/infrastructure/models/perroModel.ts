@@ -1,5 +1,5 @@
 import mongoose, { Schema, model } from "mongoose";
-import { IPerro } from "../../domain/IPerro.js";
+import { IPerro } from "../../domain/IPerro";
 
 const perroSchema = new Schema<IPerro>({
     nombre: {

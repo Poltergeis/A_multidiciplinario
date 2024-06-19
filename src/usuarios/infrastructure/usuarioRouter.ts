@@ -1,5 +1,5 @@
 import { Router } from "express";
-import getDependencies from "./dependencies.js";
+import getDependencies from "./dependencies";
 
 const dependencies = getDependencies();
 

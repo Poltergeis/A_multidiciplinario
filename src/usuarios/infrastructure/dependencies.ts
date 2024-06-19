@@ -1,23 +1,15 @@
-import { MongoRepository } from "./MongoRepository.js";
-import { DeleteUseCase } from "../application/useCases/deleteUseCase.js";
-import { LoginUseCase } from "../application/useCases/loginUseCase.js";
-import { ModifyUseCase } from "../application/useCases/modifyUseCase.js";
-import { RegisterUseCase } from "../application/useCases/registerUseCase.js";
+import { MongoRepository } from "./MongoRepository";
+import { DeleteUseCase } from "../application/useCases/deleteUseCase";
+import { LoginUseCase } from "../application/useCases/loginUseCase";
+import { ModifyUseCase } from "../application/useCases/modifyUseCase";
+import { RegisterUseCase } from "../application/useCases/registerUseCase";
 
-import { DeleteController } from "./controllers/deleteController.js";
-import { LoginController } from "./controllers/loginController.js";
-import { ModifyController } from "./controllers/modifyController.js";
-import { RegisterController } from "./controllers/registerController.js";
+import { DeleteController } from "./controllers/deleteController";
+import { LoginController } from "./controllers/loginController";
+import { ModifyController } from "./controllers/modifyController";
+import { RegisterController } from "./controllers/registerController";
 
-import { BcryptRepository } from "./bcryptRepository.js";
-
-/*const mongoRepository = new MongoRepository();
-const bcryptRepository = new BcryptRepository();
-
-const deleteUseCase = new DeleteUseCase(bcryptRepository, mongoRepository);
-const loginUseCase = new LoginUseCase(mongoRepository, bcryptRepository);
-const modifyUseCase = new ModifyUseCase(mongoRepository, bcryptRepository);
-const registerUseCase = new RegisterUseCase(mongoRepository, bcryptRepository);*/
+import { BcryptRepository } from "./bcryptRepository";
 
 class Dependencies {
     deleteController: DeleteController;

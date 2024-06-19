@@ -1,5 +1,5 @@
-import { IPerro } from "../domain/IPerro.js";
-import { PerroRepository } from "../domain/PerroRepository.js";
+import { IPerro } from "../domain/IPerro";
+import { PerroRepository } from "../domain/PerroRepository";
 
 export class DeletePerroUseCase {
     constructor(readonly perroRepository: PerroRepository) { }

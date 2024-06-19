@@ -1,6 +1,6 @@
-import { UsuarioRepository } from "../../domain/UsuarioRepository.js";
-import { EncryperRepository } from "../../domain/encrypterRepository.js";
-import { IUsuario } from "../../domain/IUsuario.js";
+import { UsuarioRepository } from "../../domain/UsuarioRepository";
+import { EncryperRepository } from "../../domain/encrypterRepository";
+import { IUsuario } from "../../domain/IUsuario";
 
 export class DeleteUseCase {
     constructor(
