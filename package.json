@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tsc && node build/app.js",
-    "dev": "nodemon build/app.js",
+    "start": "tsc && node dist/app.js",
+    "dev": "nodemon dist/app.js",
     "tsdev": "tsnd --watch --respawn --clear app.ts"
   },
   "keywords": [],

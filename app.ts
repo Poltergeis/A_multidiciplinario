@@ -32,8 +32,8 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
 
-app.use("/api/usuarios", usuarioRouter);
-app.use("/api/perros", perroRouter);
+app.use("/usuarios", usuarioRouter);
+app.use("/perros", perroRouter);
 
 const server = http.createServer(app);
 

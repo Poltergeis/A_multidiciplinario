@@ -13,10 +13,6 @@ export const usuarioSchema = new Schema<IUsuario & Document>({
     password: {
         required: true,
         type: Schema.Types.String
-    },
-    mascotas: {
-        required: true,
-        type: [Schema.Types.String]
     }
 });
 

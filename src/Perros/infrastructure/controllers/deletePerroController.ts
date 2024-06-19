@@ -6,12 +6,12 @@ export class DeletePerroController {
     
     async run(req: Request, res: Response) {
         try {
-            const { idDueño } = req.body;
-            if (!idDueño) return res.status(400).send({
+            const { idPerro } = req.body;
+            if (!idPerro) return res.status(400).send({
                 success: false,
                 message: "peticion dañada o incompleta"
             });
-            const perro = await this.deletePerroUseCase.run(idDueño);
+            const perro = await this.deletePerroUseCase.run(idPerro);
             if (!perro) return res.status(404).send({
                 success: false,
                 message: "no fue posible borrar al perro, o no se ha encontrado uno"

@@ -15,7 +15,7 @@ export class RegisterUseCase {
     ):Promise<IUsuario | null> {
         try {
             password = await this.encrypter.encrypt(password);
-            return await this.usuarioRepository.register(username, password, email);
+            return await this.usuarioRepository.register(username,email,password);
         }catch(error){
             console.log(`error en el caso de uso de registro. ERROR:${error}`);
             return null;
