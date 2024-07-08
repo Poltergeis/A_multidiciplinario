@@ -4,6 +4,7 @@ import signale from "signale";
 import helmet from "helmet";
 import http from "http";
 import dotenv from "dotenv";
+import WSServer from "src/websockets/websocket";
 
 import connectToDatabase from "./src/database/database";
 
@@ -13,14 +14,7 @@ import { perroRouter } from "./src/Perros/infrastructure/perroRouter";
 dotenv.config();
 
 const corsOptions:CorsOptions = {
-    origin: function(origin:string | undefined,callback){
-        const allowedOrigins: Array<string> = [process.env.DOMAIN_ALLOWED ? process.env.DOMAIN_ALLOWED : 'none at all'];
-        if (allowedOrigins.indexOf(origin ? origin : 'nil') !== -1 || !origin) {
-            callback(null, true);
-        } else {
-            callback(new Error('Cors no admite peticiones de este dominio'));
-        }
-    },
+    origin: [process.env.DOMAIN_ALLOWED as string ?? false],
     allowedHeaders: ["Content-Type"],
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'HEAD'],
     credentials: true
@@ -36,6 +30,9 @@ app.use("/usuarios", usuarioRouter);
 app.use("/perros", perroRouter);
 
 const server = http.createServer(app);
+
+const webSocketServer = new WSServer(server);
+webSocketServer.set();
 
 const PORT = process.env.PORT;
 
