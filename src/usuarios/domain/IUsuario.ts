@@ -1,6 +1,5 @@
 export interface IUsuario {
-    username: string,
-    email: string,
+    gmail: string,
     password: string,
     mascotas?: string[]
 }

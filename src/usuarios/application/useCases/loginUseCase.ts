@@ -9,11 +9,11 @@ export class LoginUseCase{
     ) { }
     
     async run(
-        email: string,
+        gmail: string,
         password: string
     ): Promise<IUsuario | null>{
         try {
-            const usuario: IUsuario | null = await this.usuarioRepository.getUserByEmail(email);
+            const usuario: IUsuario | null = await this.usuarioRepository.getUserByEmail(gmail);
             if (!usuario) {
                 return null;
             }

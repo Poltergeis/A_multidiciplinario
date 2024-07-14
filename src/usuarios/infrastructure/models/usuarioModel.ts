@@ -2,11 +2,7 @@ import mongoose, { Schema, model, Document } from "mongoose";
 import { IUsuario } from "../../domain/IUsuario.js";
 
 export const usuarioSchema = new Schema<IUsuario & Document>({
-    username: {
-        required: true,
-        type: Schema.Types.String
-    },
-    email: {
+    gmail: {
         required: true,
         type: Schema.Types.String
     },

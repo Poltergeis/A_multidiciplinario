@@ -2,12 +2,11 @@ import { IUsuario } from "./IUsuario";
 
 export interface UsuarioRepository{
     register(
-        username: string,
-        email: string,
+        gmail: string,
         password: string
     ): Promise<IUsuario | null>
     getUserByEmail(
-        email: string
+        gmail: string
     ): Promise<IUsuario | null>
     modify(
         usuarioOld: IUsuario,

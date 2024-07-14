@@ -6,11 +6,10 @@ import { IUsuario } from "../domain/IUsuario";
 interface UsuarioDocument extends IUsuario,Document{}
 
 export class MongoRepository implements UsuarioRepository{
-    async register(username: string, email: string, password: string): Promise<IUsuario | null> {
+    async register(gmail: string, password: string): Promise<IUsuario | null> {
         try {
             const nuevoUsuario = new usuarioModel({
-                username,
-                email,
+                gmail,
                 password
             });
             await nuevoUsuario.save();
@@ -19,9 +18,9 @@ export class MongoRepository implements UsuarioRepository{
             return null;
         }
     }
-    async getUserByEmail(email: string): Promise<IUsuario | null> {
+    async getUserByEmail(gmail: string): Promise<IUsuario | null> {
         try {
-            const usuario = await usuarioModel.findOne({ email });
+            const usuario = await usuarioModel.findOne({ gmail });
             return usuario;
         } catch (error) {
             return null;
@@ -29,9 +28,8 @@ export class MongoRepository implements UsuarioRepository{
     }
     async modify(usuarioOld: UsuarioDocument,username?: string | undefined, email?: string | undefined, password?: string | undefined): Promise<IUsuario | null> {
         try {
-            usuarioOld.email = email ?? usuarioOld.email;
+            usuarioOld.gmail = email ?? usuarioOld.gmail;
             usuarioOld.password = password ?? usuarioOld.password;
-            usuarioOld.username = username ?? usuarioOld.username;
             await usuarioOld.save();
             return usuarioOld;
         } catch (error) {

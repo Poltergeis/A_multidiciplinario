@@ -6,14 +6,14 @@ export class LoginController {
     
     async run(req: Request, res: Response) {
         try {
-            const { email, password } = req.body;
-            if (!email || !password) {
+            const { gmail, password } = req.body;
+            if (!gmail || !password) {
                 return res.status(400).send({
                     success: false,
                     message: "peticion dañada o imcompleta"
                 });
             }
-            const usuario = await this.loginUseCase.run(email, password);
+            const usuario = await this.loginUseCase.run(gmail, password);
             if (!usuario) {
                 return res.status(404).send({
                     success: false,

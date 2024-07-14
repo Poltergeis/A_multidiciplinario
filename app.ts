@@ -4,7 +4,6 @@ import signale from "signale";
 import helmet from "helmet";
 import http from "http";
 import dotenv from "dotenv";
-import WSServer from "src/websockets/websocket";
 
 import connectToDatabase from "./src/database/database";
 
@@ -30,9 +29,6 @@ app.use("/usuarios", usuarioRouter);
 app.use("/perros", perroRouter);
 
 const server = http.createServer(app);
-
-const webSocketServer = new WSServer(server);
-webSocketServer.set();
 
 const PORT = process.env.PORT;
 

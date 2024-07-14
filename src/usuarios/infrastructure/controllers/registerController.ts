@@ -6,14 +6,14 @@ export class RegisterController {
     
     async run(req: Request, res: Response) {
         try {
-            const { username, email, password }: { username: string, email: string, password: string } = req.body;
-            if (!username || (!email || !password)) {
+            const { gmail, password }: { gmail: string, password: string } = req.body;
+            if (!gmail || !password) {
                 return res.status(400).send({
                     success: false,
                     message: "los datos del registro estaban incompletos o dañados"
                 });
             }
-            const usuario = await this.registerUseCase.run(username, email, password);
+            const usuario = await this.registerUseCase.run(gmail, password);
             if (!usuario) {
                 return res.status(400).send({
                     success: true,

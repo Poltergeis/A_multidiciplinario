@@ -9,13 +9,12 @@ export class RegisterUseCase {
     ) { }
     
     async run(
-        username: string,
-        email: string,
+        gmail: string,
         password: string
     ):Promise<IUsuario | null> {
         try {
             password = await this.encrypter.encrypt(password);
-            return await this.usuarioRepository.register(username,email,password);
+            return await this.usuarioRepository.register(gmail,password);
         }catch(error){
             console.log(`error en el caso de uso de registro. ERROR:${error}`);
             return null;
