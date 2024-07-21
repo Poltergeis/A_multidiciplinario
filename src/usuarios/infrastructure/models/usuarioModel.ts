@@ -1,6 +1,6 @@
 import mongoose, { Schema, model, Document } from "mongoose";
 import { IUsuario } from "../../domain/IUsuario.js";
-import { gmailValidator, stringValidator } from "./validate.js";
+import { gmailValidator, stringValidator } from "./validate";
 
 export const usuarioSchema = new Schema<IUsuario & Document>({
     gmail: {
