@@ -7,11 +7,12 @@ export class ModifyPerroUseCase {
     async run(
         idPerro: string,
         newNombre?: string,
-        newEdad?: number,
-        newEstadoDeSalud?: string
+        newFechaNacimiento?: string,
+        newPeso?: string,
+        newTamaño?: string
     ): Promise<IPerro | null>{
         try {
-            const perro = await this.perroRepository.modifyPerro(idPerro, newNombre, newEdad, newEstadoDeSalud);
+            const perro = await this.perroRepository.modifyPerro(idPerro, newNombre, newFechaNacimiento, newPeso, newTamaño);
             if (!perro) return null;
             return perro;
         } catch (error) {

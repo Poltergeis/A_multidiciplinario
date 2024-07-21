@@ -3,8 +3,9 @@ import { IPerro } from "./IPerro";
 export interface PerroRepository {
     createPerro(
         nombre: string,
-        edad: number,
-        estadoDeSalud: string,
+        fechaNacimiento: string,
+        peso: string,
+        tamaño: string,
         idDueño: string
     ): Promise<IPerro | null>;
 
@@ -15,8 +16,9 @@ export interface PerroRepository {
     modifyPerro(
         idPerro: string,
         newNombre?: string,
-        newEdad?: number,
-        newEstadoDeSalud?: string
+        newFechaNacimiento?: string,
+        newPeso?: string,
+        newTamaño?: string,
     ): Promise<IPerro | null>;
 
     deletePerro(

@@ -1,6 +1,6 @@
 import mongoose, { Schema, model } from "mongoose";
 import { IPerro } from "../../domain/IPerro";
-import { edadValidator, stringValidator } from "./validate";
+import { stringValidator } from "./validate";
 
 const perroSchema = new Schema<IPerro>({
     nombre: {
@@ -11,21 +11,17 @@ const perroSchema = new Schema<IPerro>({
             message: 'nombre de mascota invalido y potencialmente dañino'
         }
     },
-    edad: {
-        type: Schema.Types.Number,
-        required: true,
-        validate: {
-            validator: (edad: number) => edadValidator(edad),
-            message: 'valor de edad erroneo o imposible'
-        }
-    },
-    estadoDeSalud: {
+    fechaNacimiento: {
         type: Schema.Types.String,
-        required: true,
-        validate: {
-            validator: (value: string) => stringValidator(value),
-            message: 'estado de salud invalido y potencialmente dañino'
-        }
+        required: true
+    },
+    peso: {
+        type: Schema.Types.String,
+        required: true
+    },
+    tamaño: {
+        type: Schema.Types.String,
+        required: true
     },
     idDueño: {
         type: Schema.Types.String,

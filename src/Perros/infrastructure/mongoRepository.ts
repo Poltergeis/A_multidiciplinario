@@ -3,10 +3,14 @@ import { PerroRepository } from "../domain/PerroRepository";
 import perroModel from "./models/perroModel";
 
 export class PerroMongoRepository implements PerroRepository {
-    async createPerro(nombre: string, edad: number, estadoDeSalud: string, idDueño: string): Promise<IPerro | null> {
+    async createPerro(nombre: string, fechaNacimiento: string, peso: string, tamaño: string, idDueño: string): Promise<IPerro | null> {
         try {
             const nuevoPerro = new perroModel({
-                nombre, edad, estadoDeSalud, idDueño
+                nombre: nombre,
+                fechaNacimiento: fechaNacimiento,
+                peso: peso,
+                tamaño: tamaño,
+                idDueño: idDueño
             });  
             if (!nuevoPerro) {
                 return null;
@@ -26,13 +30,15 @@ export class PerroMongoRepository implements PerroRepository {
             return null;
         }
     }
-    async modifyPerro(idPerro: string, newNombre?: string | undefined, newEdad?: number | undefined, newEstadoDeSalud?: string | undefined): Promise<IPerro | null> {
+    async modifyPerro(idPerro: string, newNombre?: string,
+        newFechaNacimiento?: string, newPeso?: string, newTamaño?: string): Promise<IPerro | null> {
         try {
             const perro = await perroModel.findById(idPerro);
             if (!perro) return null;
             perro.nombre = newNombre ?? perro.nombre;
-            perro.edad = newEdad ?? perro.edad;
-            perro.estadoDeSalud = newEstadoDeSalud ?? perro.estadoDeSalud;
+            perro.fechaNacimiento = newFechaNacimiento ?? perro.fechaNacimiento;
+            perro.peso = newPeso ?? perro.peso;
+            perro.tamaño = newTamaño ?? perro.tamaño;
             await perro.save();
             return perro;
         } catch (error) {

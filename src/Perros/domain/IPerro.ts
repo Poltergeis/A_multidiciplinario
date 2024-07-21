@@ -1,6 +1,7 @@
 export interface IPerro {
-    nombre: string,
-    edad: number,
-    estadoDeSalud: string,
-    idDueño: string
+    nombre: string;
+    fechaNacimiento: string;
+    peso: string;
+    tamaño: string;
+    idDueño: string;
 }

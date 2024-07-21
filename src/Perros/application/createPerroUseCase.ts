@@ -6,12 +6,13 @@ export class CreatePerroUseCase{
     
     async run(
         nombre: string,
-        edad: number,
-        estadoDeSalud: string,
+        fechaNacimiento: string,
+        peso: string,
+        tamaño: string,
         idDueño: string
     ): Promise<IPerro | null>{
         try {
-            const perro = await this.perroRepository.createPerro(nombre, edad, estadoDeSalud, idDueño);
+            const perro = await this.perroRepository.createPerro(nombre, fechaNacimiento, peso, tamaño, idDueño);
             if (!perro) {
                 return null;
             } else return perro;

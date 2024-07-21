@@ -6,14 +6,14 @@ export class CreatePerroController{
     
     async run(req: Request, res: Response) {
         try {
-            const { nombre, edad, estadoDeSalud, idDueño } = req.body;
-            if ((!nombre || !edad) || (!estadoDeSalud || !idDueño)) {
+            const { nombre, fechaNacimiento, peso, tamaño, idDueño } = req.body;
+            if (((!nombre || !peso) || (!fechaNacimiento || !idDueño)) || !tamaño) {
                 return res.status(400).send({
                     success: false,
                     message: "peticion dañada o imcompleta"
                 });
             }
-            const perro = await this.createPerroUseCase.run(nombre, edad, estadoDeSalud, idDueño);
+            const perro = await this.createPerroUseCase.run(nombre, fechaNacimiento, peso, tamaño, idDueño);
             if (!perro) {
                 return res.status(500).send({
                     success: false,

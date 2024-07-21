@@ -6,12 +6,12 @@ export class ModifyPerroController {
     
     async run(req: Request, res: Response) {
         try {
-            const { idPerro, newNombre, newEdad, newEstadoDeSalud } = req.body;
-            if (!idPerro || ((!newEdad && !newNombre) && !newEstadoDeSalud)) return res.status(400).send({
+            const { idPerro, newNombre, newFechaNacimiento, newPeso, newTamaño } = req.body;
+            if (!idPerro || ((!newFechaNacimiento && !newNombre) && (!newPeso && !newTamaño))) return res.status(400).send({
                 success: false,
                 message: "peticion dañada o incompleta"
             });
-            const perro = await this.modifyPerroUseCase.run(idPerro, newNombre, newEdad, newEstadoDeSalud);
+            const perro = await this.modifyPerroUseCase.run(idPerro, newNombre, newFechaNacimiento, newPeso, newTamaño);
             if (!perro) return res.status(404).send({
                 success: false,
                 message: "no se ha podido encontrar el perro a modificar"
