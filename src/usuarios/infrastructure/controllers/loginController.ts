@@ -8,29 +8,28 @@ export class LoginController {
         try {
             const { gmail, password } = req.body;
             if (!gmail || !password) {
-                return res.status(400).send({
+                res.status(400).send({
                     success: false,
                     message: "peticion dañada o imcompleta"
                 });
+                return null;
             }
             const usuario = await this.loginUseCase.run(gmail, password);
             if (!usuario) {
-                return res.status(404).send({
+                res.status(404).send({
                     success: false,
                     message: "el usuario no existe"
                 });
+                return null;
             }
-            return res.status(200).send({
-                success: true,
-                data: usuario,
-                message: "usuario recuperado con exito"
-            });
+            return usuario;
         } catch (error) {
             console.log(`error en el controlador de login. ERROR: ${error}`);
             res.status(500).send({
                 success: false,
                 message: `error general en el controlador de login. ERROR: ${error}`
             });
+            return null;
         }
     }
 }

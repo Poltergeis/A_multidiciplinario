@@ -7,13 +7,17 @@ import dotenv from "dotenv";
 
 import connectToDatabase from "./src/database/database";
 
-import { usuarioRouter } from "./src/usuarios/infrastructure/usuarioRouter";
-import { perroRouter } from "./src/Perros/infrastructure/perroRouter";
+import { UsuarioRouter } from "./src/usuarios/infrastructure/usuarioRouter";
+import { PerroRouter } from "./src/Perros/infrastructure/perroRouter";
+
+import TokenManager from "./src/TokenManager";
+
+const tokenManager = new TokenManager();
 
 dotenv.config();
 
 const corsOptions:CorsOptions = {
-    origin: [process.env.DOMAIN_ALLOWED as string ?? false],
+    origin: [process.env.DOMAIN_ALLOWED as string],
     allowedHeaders: ["Content-Type"],
     methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE', 'HEAD'],
     credentials: true
@@ -25,8 +29,8 @@ app.use(cors(corsOptions));
 app.use(helmet());
 app.use(express.json());
 
-app.use("/usuarios", usuarioRouter);
-app.use("/perros", perroRouter);
+app.use("/usuarios", new UsuarioRouter(tokenManager).getRouter());
+app.use("/perros", new PerroRouter(tokenManager).getRouter());
 
 const server = http.createServer(app);
 
