@@ -14,8 +14,7 @@ export class WebSocketsRepository implements SensorRepository {
     longitud: number,
     sp32_id: string,
     latidosPorMinuto: number,
-      temperatura: number,
-    idUsuario: string
+      temperatura: number
   ): Promise<ISensorData | null> {
     try {
       if (!this.ws || !this.ws.readyState) {
@@ -28,8 +27,7 @@ export class WebSocketsRepository implements SensorRepository {
           sp32_id,
           latidosPorMinuto,
           temperatura,
-            eventName: "SensorData",
-          idUsuario
+            eventName: "SensorData"
         })
       );
       return { latitud, longitud, sp32_id, latidosPorMinuto, temperatura };

@@ -6,7 +6,6 @@ export interface SensorRepository {
         longitud: number,
         sp32_id: string,
         latidosPorMinuto: number,
-        temperatura: number,
-        idDueño: string
+        temperatura: number
     ): Promise<ISensorData | null>;
 }

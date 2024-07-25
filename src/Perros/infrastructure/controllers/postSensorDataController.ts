@@ -1,7 +1,6 @@
 import { ISensorData } from "../../domain/ISensorData";
 import { PostSensorDataUseCase } from "../../application/postSensorDataUseCase";
 import { Request, Response } from "express";
-import ValidatedRequest from "src/types/ValidatedRequest";
 
 export class PostSensorDataController {
     constructor(readonly postSensorDataUseCase: PostSensorDataUseCase) { }
@@ -9,14 +8,13 @@ export class PostSensorDataController {
     async run(req: Request, res: Response): Promise<void> {
         try {
             const { latitud, longitud, sp32_id, latidosPorMinuto, temperatura } = req.body;
-            const idDueño = (req as ValidatedRequest).user._id;
             if (((!latitud || !longitud) || (!sp32_id || !latidosPorMinuto)) || !temperatura) {
                 res.status(400).send('peticion dañada o erronea con datos incompletos');
                 return;
             }
             const result = await this.postSensorDataUseCase.run(
                 Number(latitud), Number(longitud), String(sp32_id),
-                Number(latidosPorMinuto), Number(temperatura), String(idDueño)
+                Number(latidosPorMinuto), Number(temperatura)
             );
             if (!result) {
                 res.status(400).send('no se pudieron enviar los datos al cliente');
