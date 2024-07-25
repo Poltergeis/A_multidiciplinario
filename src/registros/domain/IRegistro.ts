@@ -1,4 +1,6 @@
 export interface IRegistro {
-    temperatura: number;
-    ritmoCardiaco: number;
+    temperatura: string;
+    ritmoCardiaco: string;
+    idPerro: string;
+    fecha: string;
 }

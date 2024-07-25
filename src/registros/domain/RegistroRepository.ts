@@ -3,7 +3,8 @@ import { IRegistro } from "./IRegistro";
 export interface RegistroRepository {
     saveData(
         temperatura: number,
-        pulsaciones: number
+        ritmoCardiaco: number,
+        idPerro: string,
     ): Promise<IRegistro | null>;
 
     getData(

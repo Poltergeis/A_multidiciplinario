@@ -9,6 +9,7 @@ import connectToDatabase from "./src/database/database";
 
 import { UsuarioRouter } from "./src/usuarios/infrastructure/usuarioRouter";
 import { PerroRouter } from "./src/Perros/infrastructure/perroRouter";
+import RegistroRouter from "./src/registros/infraestructure/RegistroRouter";
 
 import TokenManager from "./src/TokenManager";
 
@@ -31,6 +32,7 @@ app.use(express.json());
 
 app.use("/usuarios", new UsuarioRouter(tokenManager).getRouter());
 app.use("/perros", new PerroRouter(tokenManager).getRouter());
+app.use("/registros", new RegistroRouter(tokenManager).getRouter());
 
 const server = http.createServer(app);
 
