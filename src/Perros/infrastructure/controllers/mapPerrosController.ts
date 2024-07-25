@@ -1,3 +1,4 @@
+import ValidatedRequest from "src/types/ValidatedRequest";
 import { MapPerrosUseCase } from "../../application/mapPerrosUseCase";
 import { Request, Response } from "express";
 
@@ -6,7 +7,7 @@ export class MapPerrosController {
     
     async run(req: Request, res: Response) {
         try {
-            const { idDueño } = req.body;
+            const idDueño = (req as ValidatedRequest).user._id;
             if (!idDueño) return res.status(400).send({
                 success: false,
                 message: "peticion dañada o incompleta"
