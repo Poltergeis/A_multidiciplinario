@@ -1,6 +1,7 @@
 import TokenManager from "src/TokenManager";
 import getDependencies from "./dependencies";
 import { Router } from "express";
+import GPSService from "./services/GPSService";
 
 const dependencies = getDependencies();
 
@@ -21,7 +22,11 @@ export class PerroRouter {
             await dependencies.mapPerrosController.run(req, res); 
         });
         this.router.put("", this.tokenManager.validateToken.bind(this.tokenManager), async function (req, res) {
-            await dependencies.modifyPerroController.run(req, res); 
+            await dependencies.modifyPerroController.run(req, res);
+        });
+
+        this.router.post("/sensor/data", async(req, res) => {
+            await dependencies.postSensorDataController.run(req, res);
         });
     }
 

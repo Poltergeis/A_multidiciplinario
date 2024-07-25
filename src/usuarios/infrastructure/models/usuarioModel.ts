@@ -19,14 +19,6 @@ export const usuarioSchema = new Schema<IUsuario & Document>({
             validator: (value: string) => stringValidator(value),
             message: 'contraseña invalida y potencialmente dañina'
         }
-    },
-    mascotas: {
-        required: false,
-        type: [Schema.Types.String],
-        validate: {
-            validator: (values: string[]) => values.every((value) => stringValidator(value)),
-            message: 'id de mascota invalido y potencialmente dañino'
-        }
     }
 });
 

@@ -28,7 +28,7 @@ export default class TokenManager {
                     message: 'acceso no autorizado, token incorrecto o expirado'
                 });
             } else {
-                (req as ValidatedRequest).user = (user as Usuario);
+                (req as ValidatedRequest).user = (user as any);
                 next();
             }
         });

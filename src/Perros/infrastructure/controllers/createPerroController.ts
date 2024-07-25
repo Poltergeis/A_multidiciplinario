@@ -1,18 +1,21 @@
 import { Request, Response } from "express";
 import { CreatePerroUseCase } from "../../application/createPerroUseCase";
+import ValidatedRequest from "../../../types/ValidatedRequest";
+import signale from "signale";
 
 export class CreatePerroController{
     constructor(readonly createPerroUseCase: CreatePerroUseCase) { }
     
     async run(req: Request, res: Response) {
         try {
-            const { nombre, fechaNacimiento, peso, tamaño, idDueño } = req.body;
-            if (((!nombre || !peso) || (!fechaNacimiento || !idDueño)) || !tamaño) {
+            const { nombre, fechaNacimiento, peso, tamaño } = req.body;
+            if (((!nombre || !peso) || (!fechaNacimiento)) || !tamaño) {
                 return res.status(400).send({
                     success: false,
                     message: "peticion dañada o imcompleta"
                 });
             }
+            const idDueño = (req as ValidatedRequest).user._id;
             const perro = await this.createPerroUseCase.run(nombre, fechaNacimiento, peso, tamaño, idDueño);
             if (!perro) {
                 return res.status(500).send({
